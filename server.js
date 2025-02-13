@@ -1,6 +1,5 @@
 const express = require("express");
 const { google } = require("googleapis");
-const fs = require("fs");
 
 const app = express();
 const PORT = process.env.PORT || 3000;
@@ -8,9 +7,9 @@ const PORT = process.env.PORT || 3000;
 app.use(express.static("public"));
 app.use(express.urlencoded({ extended: true }));
 
-// Google Sheets setup
+// Google Sheets setup - Use credentials from environment variable
 const auth = new google.auth.GoogleAuth({
-    keyFile: "service-account.json", // Path to the service account JSON file
+    credentials: JSON.parse(process.env.GOOGLE_SERVICE_ACCOUNT),
     scopes: ["https://www.googleapis.com/auth/spreadsheets"],
 });
 
