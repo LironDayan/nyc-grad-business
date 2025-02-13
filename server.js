@@ -1,3 +1,9 @@
+console.log("DEBUG: GOOGLE_SERVICE_ACCOUNT:", process.env.GOOGLE_SERVICE_ACCOUNT);
+
+if (!process.env.GOOGLE_SERVICE_ACCOUNT) {
+    console.error("🚨 ERROR: GOOGLE_SERVICE_ACCOUNT environment variable is missing!");
+    process.exit(1);
+}
 const express = require("express");
 const { google } = require("googleapis");
 
