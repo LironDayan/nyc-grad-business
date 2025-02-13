@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NYC Grad Housing</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <h1>NYC Grad Housing</h1>
+        <p>Helping NYC grads find the perfect apartment through trusted brokers.</p>
+    </header>
+
+    <section id="about">
+        <h2>About Us</h2>
+        <p>We connect recent college graduates moving to NYC with real estate agents and brokers to help them find housing quickly and efficiently.</p>
+    </section>
+
+    <section id="how-it-works">
+        <h2>How It Works</h2>
+        <ul>
+            <li>Fill out our contact form.</li>
+            <li>Get matched with a trusted real estate agent.</li>
+            <li>Find your ideal NYC apartment hassle-free.</li>
+        </ul>
+    </section>
+
+    <section id="contact">
+        <h2>Get in Touch</h2>
+        <form id="contact-form" action="/contact" method="POST">
+            <input type="text" name="name" placeholder="Your Name" required>
+            <input type="email" name="email" placeholder="Your Email" required>
+            <textarea name="message" placeholder="Your Message" required></textarea>
+            <button type="submit">Submit</button>
+        </form>
+        <p id="response-message"></p>
+    </section>
+</body>
+</html>
+
