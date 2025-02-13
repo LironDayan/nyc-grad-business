@@ -1,3 +1,12 @@
+if (!process.env.GOOGLE_SERVICE_ACCOUNT) {
+    console.error("🚨 ERROR: GOOGLE_SERVICE_ACCOUNT environment variable is missing!");
+    process.exit(1);
+}
+
+const auth = new google.auth.GoogleAuth({
+    credentials: JSON.parse(process.env.GOOGLE_SERVICE_ACCOUNT),
+    scopes: ["https://www.googleapis.com/auth/spreadsheets"],
+});
 const express = require("express");
 const { google } = require("googleapis");
 
