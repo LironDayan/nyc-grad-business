@@ -1,12 +1,3 @@
-if (!process.env.GOOGLE_SERVICE_ACCOUNT) {
-    console.error("🚨 ERROR: GOOGLE_SERVICE_ACCOUNT environment variable is missing!");
-    process.exit(1);
-}
-
-const auth = new google.auth.GoogleAuth({
-    credentials: JSON.parse(process.env.GOOGLE_SERVICE_ACCOUNT),
-    scopes: ["https://www.googleapis.com/auth/spreadsheets"],
-});
 const express = require("express");
 const { google } = require("googleapis");
 
@@ -16,14 +7,22 @@ const PORT = process.env.PORT || 3000;
 app.use(express.static("public"));
 app.use(express.urlencoded({ extended: true }));
 
-// Google Sheets setup - Use credentials from environment variable
+// ✅ Error handling: Check if the environment variable is set
+if (!process.env.GOOGLE_SERVICE_ACCOUNT) {
+    console.error("🚨 ERROR: GOOGLE_SERVICE_ACCOUNT environment variable is missing!");
+    process.exit(1);
+}
+
+// ✅ Correct Google Sheets authentication (only ONE declaration)
 const auth = new google.auth.GoogleAuth({
     credentials: JSON.parse(process.env.GOOGLE_SERVICE_ACCOUNT),
     scopes: ["https://www.googleapis.com/auth/spreadsheets"],
 });
 
-const SHEET_ID = "18Nm91NLMSKW8Mzf-vX7bWVn9EHuIcyUrYVkgM6-ERso"; // Your Google Sheet ID
+// ✅ Your Google Sheet ID
+const SHEET_ID = "18Nm91NLMSKW8Mzf-vX7bWVn9EHuIcyUrYVkgM6-ERso"; 
 
+// ✅ Contact form submission route
 app.post("/contact", async (req, res) => {
     const { name, email, message } = req.body;
 
@@ -41,15 +40,16 @@ app.post("/contact", async (req, res) => {
             },
         });
 
-        console.log(`New Contact Submission: Name=${name}, Email=${email}, Message=${message}`);
-        res.send("Thank you! Your info has been saved.");
+        console.log(`✅ New Contact Submission: Name=${name}, Email=${email}, Message=${message}`);
+        res.send("✅ Thank you! Your info has been saved.");
     } catch (error) {
-        console.error("Error saving to Google Sheets:", error);
-        res.status(500).send("Error saving data.");
+        console.error("🚨 Error saving to Google Sheets:", error);
+        res.status(500).send("🚨 Error saving data.");
     }
 });
 
+// ✅ Start the server
 app.listen(PORT, () => {
-    console.log(`Server running on port ${PORT}`);
+    console.log(`✅ Server running on port ${PORT}`);
 });
 
