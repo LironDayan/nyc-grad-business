@@ -1,88 +1,62 @@
-/* 🌟 Sleek & Modern Design for NYC Grad Business 🌟 */
+/*  NYC Grad Business - Simple Blue & White Theme  */
 
-/* Reset default styles */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: 'Poppins', sans-serif;
+    font-family: Arial, sans-serif;
 }
 
-/* Full-page layout */
 body {
-    background: linear-gradient(to right, #141E30, #243B55); /* Dark modern gradient */
-    color: #fff;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
+    background: white;
+    color: #1E3A8A;
     text-align: center;
     padding: 20px;
 }
 
-/* Landing Page Container */
 .container {
-    background: rgba(255, 255, 255, 0.1); /* Transparent white */
-    padding: 30px;
-    border-radius: 12px;
-    backdrop-filter: blur(10px);
-    box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.2);
-    width: 100%;
-    max-width: 500px;
+    max-width: 600px;
+    margin: auto;
 }
 
-/* Heading */
 h1 {
     font-size: 2rem;
     margin-bottom: 10px;
-    font-weight: bold;
 }
 
-/* Form */
-form {
-    display: flex;
-    flex-direction: column;
-    gap: 15px;
+h2 {
+    font-size: 1.5rem;
     margin-top: 20px;
 }
 
-/* Input Fields */
-input, textarea {
-    width: 100%;
-    padding: 12px;
-    border-radius: 6px;
-    border: none;
+p {
     font-size: 1rem;
-    outline: none;
+    margin-bottom: 15px;
 }
 
-/* Submit Button */
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-top: 20px;
+}
+
+input, textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #1E3A8A;
+    border-radius: 5px;
+}
+
 button {
-    background: #ff7f50;
-    border: none;
+    background: #1E3A8A;
     color: white;
-    padding: 12px;
-    border-radius: 6px;
-    font-size: 1rem;
-    font-weight: bold;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
     cursor: pointer;
-    transition: 0.3s ease-in-out;
 }
 
 button:hover {
-    background: #ff6347;
-    transform: scale(1.05);
+    background: #2563EB;
 }
-
-/* Responsive Design */
-@media (max-width: 600px) {
-    .container {
-        padding: 20px;
-        width: 90%;
-    }
-
-    h1 {
-        font-size: 1.8rem;
-    }
-}
-
